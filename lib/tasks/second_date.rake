@@ -1,7 +1,8 @@
 namespace :db do
     desc "Fill database with second data"
     task populate: :environment do
-        User.create!(name: "Example User",email: "example@railstutorial.org",password: "foobar")
+        admin = User.create!(name: "Example User", email: "example@railstutorial.org", password: "foobar", admin: true)
+        
         
         99.times do |n|
             name=Faker::Name.name
