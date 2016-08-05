@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
   
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
@@ -15,10 +16,10 @@ class User < ActiveRecord::Base
     Micropost.where("user_id = ?", id)
   end
   
-  def follwing?(other_user)
+  def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
   end
-  
+
   def follow!(other_user)
     relationships.create!(followed_id: other_user.id)
   end
