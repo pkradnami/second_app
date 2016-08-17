@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811113604) do
+ActiveRecord::Schema.define(version: 20160813101612) do
 
   create_table "favorites", force: true do |t|
     t.integer  "user_id"
@@ -36,6 +36,12 @@ ActiveRecord::Schema.define(version: 20160811113604) do
   end
 
   add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
+
+  create_table "projects", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"

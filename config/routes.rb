@@ -9,6 +9,7 @@ SecondApp::Application.routes.draw do
   end
   resources :microposts, only: [:create,  :destroy]
   resources :relationships, only: [:create,  :destroy]
+  resources :projects
   root  'static_pages#home'
   
   match '/help',    to: 'static_pages#help',    via: 'get'

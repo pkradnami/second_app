@@ -9,13 +9,14 @@
       </section>
       <section>
         <%= render 'shared/micropost_form' %>
+        
+        <%= render 'shared/micropost_form' %>
       </section>
     </aside>
     <div class="col-md-8">
       <h3>Micropost Feed</h3>
       <%= render 'shared/feed' %>
     </div>
-  </div>
 <% else %>
 
 <div class="center jumbotron">
@@ -31,4 +32,5 @@
 </div>
 
 <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+
 <% end %>
