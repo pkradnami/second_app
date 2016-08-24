@@ -3,7 +3,7 @@ class CreateFavorites < ActiveRecord::Migration
     create_table :favorites do |t|
       t.integer :micropost_id
       t.integer :user_id
-
+      
       t.timestamps
     end
   end

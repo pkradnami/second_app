@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817095544) do
+ActiveRecord::Schema.define(version: 20160823133851) do
 
   create_table "favorites", force: true do |t|
     t.integer  "micropost_id"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20160817095544) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "favorites", ["user_id", "micropost_id"], name: "index_favorites_on_user_id_and_micropost_id", unique: true
 
   create_table "microposts", force: true do |t|
     t.string   "content"

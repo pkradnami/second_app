@@ -15,6 +15,7 @@ class UsersController < ApplicationController
       def show
         @user = User.find(params[:id])
         @microposts = @user.microposts.paginate(page: params[:page])
+        # @favorite = current_user.favorite_microposts
       end
       
       def following
@@ -30,7 +31,14 @@ class UsersController < ApplicationController
         @users = @user.followers.paginate(page: params[:page])
         render 'show_follow'
       end
-
+      
+      def favorite
+      #   @user.favorites.build(favoritable: Micropost.find(1))
+      # 	@user = User.find(params[:id])
+      # 	current_user.microposts << team
+      end
+      
+      
   private
   
       def admin_user

@@ -3,7 +3,9 @@ class Micropost < ActiveRecord::Base
   default_scope -> { order('created_at DESC') }
   validates :content, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
+  has_many :favorites
   
+  # has_many :favourites, through: :favourite_guidelines, source: :guideline
   # ファイル用の属性を追加するhas_attached_fileメソッド
   has_attached_file :image, styles: {medium: "200x150>", thumb: "50x50>"}, :default_url => "/system/microposts/images/000/000"
  # has_attached_file :image, styles: {medium: "200x150>", thumb: "50x50>"}
@@ -17,4 +19,5 @@ class Micropost < ActiveRecord::Base
     where("user_id IN (#{followed_user_ids}) OR user_id = :user_id",
           user_id: user.id)
   end
+
 end
