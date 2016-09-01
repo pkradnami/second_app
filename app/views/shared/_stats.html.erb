@@ -12,7 +12,7 @@
     </strong>
     followers
   </a>
-  <a href="<%= favorites_path %>">
+  <a href="<%= favorites_path(current_user) %>">
     <strong id="favorites" class="stat">
       <%= @micropost.favorites.count %>
     </strong>

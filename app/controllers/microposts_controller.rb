@@ -19,14 +19,6 @@ class MicropostsController < ApplicationController
        redirect_to root_url
     end
     
-    # def fav
-    # @micropost = Micropost.find(params[:id])
-    #   if @micropost.favorites.blank?
-    #     current_user.favorites.create(micropost: @micropost)
-    #   else
-    #     current_user.favorites.where(micropost: @micropost).destroy_all
-    #   end
-    # end
     
     private
     

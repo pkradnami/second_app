@@ -1,17 +1,17 @@
 SecondApp::Application.routes.draw do
-  get 'favorites/index'
-
   devise_for :users, :controllers => {
     :registrations => "registrations"
   }
   resources :users, only: [:show, :index, :destroy] do
     member do
       get :following, :followers
+      # resources :favorites, only: :index
+      resources :favorites, only: [:index, :create, :new, :destroy]
     end
   end
-  resources :microposts, only: [:create,  :destroy]
+  resources :microposts, only: [:create,  :destroy] 
   resources :relationships, only: [:create,  :destroy]
-  resources :favorites, only: [:index, :create]
+  # resources :favorites, only: [:create, :new, :destroy] 
   root  'static_pages#home'
   
   match '/help',    to: 'static_pages#help',    via: 'get'
