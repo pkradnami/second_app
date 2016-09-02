@@ -38,3 +38,11 @@ def make_relationships
   followed_users.each { |followed| user.follow!(followed) }
   followers.each      { |follower| follower.follow!(user) }
 end
+
+# def make_favorites
+#   users = User.all
+#   50.times do
+#     content = Faker::Lorem.sentence(5)
+#     users.each { |user| user.favorites.create!(content: content) }
+#   end
+# end

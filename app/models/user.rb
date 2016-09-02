@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
          
    def feed
     Micropost.from_users_followed_by(self)
+    # Favorite.from_users_favorites_by(self)
    end
   
   def following?(other_user)
