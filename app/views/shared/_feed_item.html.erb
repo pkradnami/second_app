@@ -11,18 +11,17 @@
       </div>
     <% end %>
     
+    <br>
+    <%= feed_item_is_favorited_by_current_user?(feed_item.id) %>
+    <br>
+    
     <!--ここにfavoriteのリンクになるように書く-->
-    <% if false %>
-      <%= link_to 'Favorite', { controller: :favorites, action: :create }, :micropost_id => feed_item.id, :user_id =>current_user.id %>
-    <% end %>
-    
-    
-      <%= link_to 'Favorite',favorites_path(:micropost_id => feed_item.id, :user_id =>current_user.id, id: current_user.id), method: :post %>
-     
-     
-      
-  
-    
+      <% if feed_item_is_favorited_by_current_user?(feed_item.id) %>
+        <%= link_to 'Unfavorite',favorite_path(:micropost_id => feed_item.id, id: current_user.id), method: :delete %>
+      <% else %>
+        <%= link_to 'Favorite',favorites_path(:micropost_id => feed_item.id, id: current_user.id), method: :post %>
+
+      <% end %>
     <span class="timestamp">
       Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
     </span>

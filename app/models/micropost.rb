@@ -4,6 +4,7 @@ class Micropost < ActiveRecord::Base
   validates :content, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
   has_many :favorites
+  # has_many :favorites, dependent: :destroy
   
   # has_many :favourites, through: :favourite_guidelines, source: :guideline
   # ファイル用の属性を追加するhas_attached_fileメソッド

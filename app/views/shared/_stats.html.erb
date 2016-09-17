@@ -12,7 +12,7 @@
     </strong>
     followers
   </a>
-  <a href="<%= favorites_path(current_user) %>">
+  <a href="<%= favorites_path(@user) %>">
     <strong id="favorites" class="stat">
       <%= @user.favorites.count %>
     </strong>

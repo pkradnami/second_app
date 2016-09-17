@@ -10,7 +10,8 @@ end
 group :development, :test do
   gem 'pry-byebug'
 end
-
+gem 'ransack'
+gem 'activerecord-precount'
 gem 'sprockets', '2.11.0'
 gem 'uglifier', '2.5.3'
 gem 'coffee-rails', '4.0.1'
