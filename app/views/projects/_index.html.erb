@@ -1,0 +1,11 @@
+<%= search_form_for @search do |f| %>
+  <div class="field">
+    <%= f.label :name_cont, "Search users" %>
+    <%= f.text_field :name_cont %><br>
+  </div>
+  <%= f.submit "Search", class: "btn btn-large btn-primary" %>
+<% end %>
+
+<% if false %>
+
+<% end %>

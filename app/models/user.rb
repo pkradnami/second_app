@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :favorites
-  # has_many :favorites, dependent: :destroy
+  has_many :projects
 
   has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
@@ -14,7 +14,6 @@ class User < ActiveRecord::Base
          
    def feed
     Micropost.from_users_followed_by(self)
-    # Favorite.from_users_favorites_by(self)
    end
   
   def following?(other_user)

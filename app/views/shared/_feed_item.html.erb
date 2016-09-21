@@ -11,11 +11,6 @@
       </div>
     <% end %>
     
-    <br>
-    <%= feed_item_is_favorited_by_current_user?(feed_item.id) %>
-    <br>
-    
-    <!--ここにfavoriteのリンクになるように書く-->
       <% if feed_item_is_favorited_by_current_user?(feed_item.id) %>
         <%= link_to 'Unfavorite',favorite_path(:micropost_id => feed_item.id, id: current_user.id), method: :delete %>
       <% else %>

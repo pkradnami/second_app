@@ -9,14 +9,18 @@ class UsersController < ApplicationController
       end
      
       def index
-        @users = User.paginate(page: params[:page])
+        @users = 
+          if params[:q]
+            User.where(name: params[:q][:name_cont])
+                .paginate(page: params[:page])
+          else
+            User.paginate(page: params[:page])
+          end
       end
-     
+
       def show
         @user = User.find(params[:id])
         @microposts = @user.microposts.paginate(page: params[:page])
-        # @favorite = Favorite.new(micropost_id: @micropost.id,user_id: @user.id)
-        # @favorite = current_user.favorite_microposts
         
       end
       

@@ -1,6 +1,10 @@
 class ProjectsController < ApplicationController
-    def index
-        #ViewのFormで取得したパラメータをモデルに渡す
-        @projects = Project.search(params[:search])
-    end
+  # before_filter :index
+    
+  #   def index
+  #       @search = User.ransack(params[:q])
+  #       @projects = @search.result.page(params[:page])
+  #   end
+
+    
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823133851) do
+ActiveRecord::Schema.define(version: 20160920024445) do
 
   create_table "favorites", force: true do |t|
     t.integer  "micropost_id"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20160823133851) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "micropost_id"
+    t.integer  "user_id"
   end
 
   create_table "relationships", force: true do |t|

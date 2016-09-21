@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
-  
+
+  before_filter :search, only: :home  
+
   def home
     if signed_in?
       @micropost  = current_user.microposts.build
@@ -14,5 +16,10 @@ class StaticPagesController < ApplicationController
   end
   
   def contact
+  end
+  
+  def search
+    @search = User.search(params[:q])
+    @projects = @search.result.page(params[:page])
   end
 end
