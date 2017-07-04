@@ -1,17 +1,10 @@
 <% if false %>
 
-<!-- aaaa
- -->
-
-<!--  aaa    -->
  <% User.all.precount(:favorites).each do |f| %>
     <p><%=  f.favorites.count %></p>
     
      <%= link_to 'Unfavorite',favorites_user_url(f), method: :delete %>
     <%= render @favorite %>
-
-
-<!-- bbb -->
    
   <% end %>
 <% end %>
