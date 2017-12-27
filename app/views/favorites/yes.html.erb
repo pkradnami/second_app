@@ -1,0 +1,20 @@
+<% if false %>
+ <% User.all.precount(:favorites).each do |f| %>
+    <p><%=  f.favorites.count %></p>
+    
+     <%= link_to 'Unfavorite',favorites_user_url(f), method: :delete %>
+    <%= render @favorite %>
+   
+  <% end %>
+<% end %>
+<h1>Users::Favorites#index</h1>
+
+ <% @favorite.each do |f| %>
+   <p><%= f.content %></p>
+   <%= link_to 'delete',favorite_path(f), method: :delete %>
+  
+<!--   aaaaaaaa -->
+  
+
+  
+<% end %>
